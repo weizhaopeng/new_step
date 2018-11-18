@@ -138,3 +138,78 @@ ls
 ls
 la
 su
+ls
+ls -l
+cd niuke_test/
+ls
+cd
+ls
+ls
+ls -l
+ls
+cd
+ls
+ls -l
+cd niuke_test/
+ls
+ls -l
+./get_last_length 
+ls
+ll
+ls -l
+ls
+vim .
+ls
+ls -l
+vim .
+ls
+cd
+ls
+su
+./user_right 
+su
+su
+./user_right 
+cat user_right.c 
+./user_right 
+ls -l
+su
+./user_right 
+su
+ls
+su
+su
+ls
+la
+rm user_right
+ls
+cd ..
+ls
+rm 123.jpg 
+la
+ls
+ls -l
+rm 123.jpg 
+rm a.out 
+cd process/
+ls
+su
+./user_right 
+su
+./user_right 
+ls -l
+fg
+su
+ls
+./user_right 
+vim user_right
+ls
+vim user_right.c 
+ls
+su 
+ls
+./user_right 
+fg
+ls -l
+su
+su
