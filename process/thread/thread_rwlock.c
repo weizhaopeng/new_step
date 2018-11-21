@@ -17,16 +17,16 @@ typedef struct {
 } array_t;
 
 static inline array_t *array_init(const uint32_t cap);
-static inline void array_free(array_t *at);
+static inline void 	   array_free(array_t *at);
 
 static inline uint32_t array_index(const uint32_t index, array_t *at);
 static inline uint32_t array_get_length(array_t *at);
-static inline int array_modify(array_t *at, const uint32_t index, uint32_t new_value);
+static inline int 	   array_modify(array_t *at, const uint32_t index, uint32_t new_value);
 
-static inline void printf_array(array_t *at);
+static inline void  printf_array(array_t *at);
 static inline void *fun1(void *argv);
 static inline void *fun2(void *argv);
-static inline void array_random(const uint32_t length, array_t *at);
+static inline void  array_random(const uint32_t length, array_t *at);
 
 int
 main(void) {
@@ -47,7 +47,6 @@ main(void) {
 	pthread_join(th2, (void*)&retval2);
 
 	printf("parent:\n");
-	printf_array(retval1);
 	printf_array(retval2);
 	
 	array_free(at);
@@ -173,8 +172,9 @@ fun2(void *argv) {
 	array_t *at = (array_t*)argv;
 
 	printf("thread2:\n");
-	//printf_array(at);
-	array_modify(at, 9, 988);
+	sleep(3);
+	printf_array(at);
+	//array_modify(at, 9, 988);
 	sleep(5);
 	pthread_exit(argv);
 }
