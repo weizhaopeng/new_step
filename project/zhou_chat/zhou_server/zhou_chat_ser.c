@@ -1,5 +1,7 @@
 #include "zhou_chat_ser.h"
 
+static inline void* zhou_chat_func(void *argv);
+
 int zhou_interact(const int *chat_pair) {
 	pthread_t 	   th1, th2;
 	void		  *retval1 = NULL, *retval2 = NULL;
@@ -29,21 +31,11 @@ int zhou_interact(const int *chat_pair) {
 	return(0);
 }
 
-static inline int
-
-
-
-
-
-
-
-
-
-
-
-
+static inline void*
+zhou_chat_func(void *argv) {
 	int    		   nfds = 2, sigmess_t, ret,
-				   fd_from, fd_to;
+				   fd_from, fd_to,
+				   *chat_pair = (int*)argv;
 	char   		   buf_recv[100], buf_send[100];
 	fd_set 		   rset, wset;
 	struct timeval timeout = {
@@ -59,14 +51,12 @@ static inline int
 	while (1) {
 		ret = select(nfds+1, &rset, &wset, NULL, &timeout);
 		if (ret > 0) {
-			if (FD_ISSET(chat_pair[0], &rset) && 
-					FD_ISSET(chat_pair[1], &wset)) {
+			if (FD_ISSET(chat_pair[0], &rset)) {
 				fd_from = chat_pair[0];
 				fd_to	= chat_pair[1];
 				sigmess_t = 1;
 			}
-			if (FD_ISSET(chat_pair[1], &rset) && 
-					FD_ISSET(chat_pair[0], &wset)) {
+			if (FD_ISSET(chat_pair[1], &rset)) {
 				fd_from = chat_pair[1];
 				fd_to	= chat_pair[0];
 				sigmess_t = 1;
@@ -76,10 +66,6 @@ static inline int
 				ret = read(fd_from, buf_recv, 100);
 				write(fd_to, buf_send, 100);
 				sigmess_t = 0;
-				if (ret == 0)
-					return 0;
-				else if (ret == -1)
-					return -1;
 			}
 		}
 	}
