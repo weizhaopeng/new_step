@@ -1,0 +1,9 @@
+package package_test.child_package.*;
+
+public class Demo {
+	public static void main(String[] args) {
+		Hello hello = new Hello();
+
+		hello.printHello();
+	}
+}
