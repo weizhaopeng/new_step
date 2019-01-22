@@ -1,4 +1,4 @@
-
+//练习8.8
 public class Fan {
 	public static void main(String[] args) {
 		Fan fun1 = new Fan(Fan.FAST, true, 10.0, "yellow"),
@@ -52,10 +52,10 @@ public class Fan {
 	}
 
 	public Fan() {
-		speed  = SLOW;
-		on	   = false;
-		radius = 5;
-		color  = new String("blue");
+		this.speed  = SLOW;
+		this.on	   = false;
+		this.radius = 5;
+		this.color  = new String("blue");
 	}
 	public Fan(int aSpeed, boolean aOn, double aRadius, String aColor) {
 		this.speed = aSpeed;
