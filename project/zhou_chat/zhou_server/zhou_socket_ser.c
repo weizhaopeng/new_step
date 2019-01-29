@@ -11,7 +11,7 @@ zhou_socket_ser(struct sockaddr_in *cliaddr,
 	struct sockaddr_in seraddr;
 
 	seraddr.sin_family 		= AF_INET;
-	inet_pton(AF_INET, SERVER_IP, &seraddr.sin_addr.s_addr);
+	inet_pton(AF_INET, SOCK_IP_SERVER, &seraddr.sin_addr.s_addr);
 	seraddr.sin_port		= htons(SOCK_PORT);
 
 	listenfd = socket(AF_INET, SOCK_STREAM, 0);
