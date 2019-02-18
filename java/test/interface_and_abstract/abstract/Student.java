@@ -11,7 +11,7 @@ public class Student extends IdentifyAbstract {
 		this.domain = "student";
 	}
 
-	public void identifyShow() {
+	public void identifyShow(int a) {
 		System.out.println("身份是学生");
 	}
 }
