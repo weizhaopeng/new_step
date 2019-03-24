@@ -1,0 +1,13 @@
+#!/bin/bash
+x=1
+y=2
+
+if [ $x -eq $y ]; then
+	echo 相同
+	echo 结束
+elif [ $x -gt $y ]
+then
+	echo 大于
+else
+	echo 小于
+fi
