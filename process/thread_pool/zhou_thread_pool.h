@@ -15,18 +15,6 @@ typedef struct task_queue_s {
     task_t **tail;
 } task_queue_t;
 
-//线程池
-typedef struct thread_pool_s {
-	//任务队列,互斥量，事务数量，
-    task_queue_t   *queue;
-    pthread_mutex_t mtx;
-		    
-    int   threads;
-    int   max_queue;
-    char *name;
-				    
-    zhou_log_t *log;
-}
 
 
 
